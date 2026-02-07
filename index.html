@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GreenVX">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="GreenVX - Servidor de Roleplay Greenville Roblox. Vive la experiencia de roleplay más inmersiva.">
+    <title>GreenVX - Servidor Roleplay Greenville</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="login-box">
+                <img src="images/logo.png" alt="GVX Logo" class="login-logo">
+                <h2>Bienvenido a GreenVX</h2>
+                <p>Ingresa tu usuario de Discord</p>
+                <input type="text" id="discordUsername" placeholder="Usuario#1234">
+                <button onclick="login()">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="GVX Logo" class="logo">
+                <h1>GreenVX</h1>
+            </div>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="welcomeText">Bienvenido, <span id="username"></span></span>
+                <div class="user-avatar" id="userAvatar"></div>
+                <button onclick="logout()" class="logout-button" title="Cerrar sesión">
+                    🚪
+                </button>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="nav" class="nav">
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Inicio</a></li>
+            <li><a href="#historia" onclick="showSection('historia')">Historia</a></li>
+            <li><a href="#staff-mes" onclick="showSection('staff-mes')">Staff del Mes</a></li>
+            <li><a href="#host-mes" onclick="showSection('host-mes')">Host del Mes</a></li>
+            <li><a href="#jugador-mes" onclick="showSection('jugador-mes')">Jugador del Mes</a></li>
+            <li><a href="#media" onclick="showSection('media')">Media</a></li>
+            <li><a href="#informacion" onclick="showSection('informacion')">Información</a></li>
+            <li><a href="#enlaces" onclick="showSection('enlaces')">Enlaces</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2 class="neon-text">GREENVX</h2>
+                    <p class="subtitle">Servidor Roleplay de Greenville Roblox</p>
+                    <p class="hero-description">Vive la experiencia de roleplay más inmersiva en Greenville. Únete a nuestra comunidad y forma parte de la historia.</p>
+                    <a href="#enlaces" onclick="showSection('enlaces')" class="cta-button">Únete Ahora</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/logo.png" alt="GVX">
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Fundación</h3>
+                    <p>29 Julio 2025</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Verdadero Crecimiento</h3>
+                    <p>Octubre 2025</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Miembros Actuales</h3>
+                    <p id="memberCount">Cerca de 600</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Primera Sesión Llena</h3>
+                    <p>14 Dic 2025</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Último Hito</h3>
+                    <p>500 Miembros</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Fecha del Hito</h3>
+                    <p>17 Ene 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historia Section -->
+        <section id="historia" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <div class="historia-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Los Orígenes - Marzo 2025</h3>
+                                <p>Todo comenzó con Andrés, mejor conocido como Bob la Ardilla, quien formaba parte del equipo de staff del servidor GVRP. El 13 de marzo de 2025, un raid afectó gravemente al servidor. Este evento impulsó a varios miembros del staff a unirse con una idea clara: crear algo nuevo, más sólido y mejor estructurado. Así nació GVX.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Primer Intento - Primavera 2025</h3>
+                                <p>El servidor GVX se lanzó con fuerza y, en sus primeras semanas, logró atraer a más de 80 jugadores. Sin embargo, el owner principal no contaba con el tiempo suficiente para supervisar el proyecto y parte del staff no mantenía el compromiso necesario. Como consecuencia, el servidor tuvo que cerrar temporalmente. Pero la historia no terminó ahí.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>El Renacer - 29 de Julio 2025</h3>
+                                <p>Bob, junto con Alonso, tomó la decisión de revivir GVX. Esta vez, el proyecto regresó con más experiencia, mayor organización, recursos suficientes y un equipo verdaderamente comprometido. La visión era clara: construir un servidor de roleplay profesional, estable y sostenible, donde la comunidad fuera la base de todo.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>El Verdadero Crecimiento - Octubre 2025</h3>
+                                <p>El verdadero punto de inflexión llegó en octubre de 2025, cuando GVX comenzó un crecimiento acelerado, atrayendo a una gran cantidad de usuarios en muy poco tiempo. El equipo había demostrado que el compromiso y la dedicación podían transformar un proyecto en una comunidad vibrante.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>100 Miembros - 28 de Octubre 2025</h3>
+                                <p>El servidor alcanzó por primera vez los 100 miembros, marcando el inicio de una nueva etapa. Este hito demostró que GVX había logrado captar la atención de la comunidad de Greenville Roblox y que el proyecto tenía un futuro prometedor.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>200 Miembros - 12 de Noviembre 2025</h3>
+                                <p>GVX llegó a los 200 miembros, consolidándose como una comunidad en expansión. El crecimiento continuaba sin detenerse y cada día más jugadores descubrían la calidad del roleplay en GVX.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>300 Miembros - 6 de Diciembre 2025</h3>
+                                <p>Se alcanzaron los 300 miembros, demostrando que GVX había pasado de ser un proyecto revivido a convertirse en una de las comunidades más importantes del roleplay en Greenville.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Primera Sesión Llena - 14 de Diciembre 2025</h3>
+                                <p>Uno de los momentos más importantes en la historia del servidor: GVX logró llenar una sesión por primera vez, demostrando el impacto real y la popularidad que había alcanzado el proyecto. La comunidad celebró este logro como símbolo del éxito colectivo.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>400 Miembros - 25 de Diciembre 2025</h3>
+                                <p>Como un regalo de Navidad para toda la comunidad, GVX llegó a los 400 miembros. El año terminaba con un crecimiento extraordinario y la promesa de un futuro aún más brillante.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>500 Miembros - 17 de Enero 2026</h3>
+                                <p>El nuevo año comenzó con fuerza. GVX alcanzó los 500 miembros, superando todas las expectativas y demostrando que el proyecto no solo era sostenible, sino que continuaba creciendo a un ritmo impresionante.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Rumbo a los 600 - Presente</h3>
+                                <p>Hoy, GVX se encuentra a muy poco de alcanzar los 600 miembros. El servidor se ha consolidado como una comunidad vibrante y activa, con eventos mensuales, staff capacitado y una estructura que premia el esfuerzo, la dedicación y el buen roleplay. Este renacer marcó una nueva era para GVX: una donde cada jugador importa y donde el roleplay se vive con intensidad, respeto y pasión. El futuro nunca se ha visto más prometedor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff del Mes Section -->
+        <section id="staff-mes" class="section">
+            <div class="container">
+                <h2 class="section-title">Staff del Mes</h2>
+                <div class="ranking-grid">
+                    <div class="ranking-card first-place">
+                        <div class="rank-badge">1°</div>
+                        <div class="member-avatar">👑</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Primer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">2°</div>
+                        <div class="member-avatar">⭐</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Segundo Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">3°</div>
+                        <div class="member-avatar">🏅</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Tercer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">4°</div>
+                        <div class="member-avatar">🎖️</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Cuarto Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">5°</div>
+                        <div class="member-avatar">🎯</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Quinto Lugar</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>¿Quieres aparecer aquí?</h3>
+                    <p>Demuestra tu compromiso con GVX. Participa activamente, ayuda a la comunidad, mantén el orden en el servidor y destaca por tu profesionalismo. Los mejores staffs son reconocidos mensualmente por su dedicación y esfuerzo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Host del Mes Section -->
+        <section id="host-mes" class="section">
+            <div class="container">
+                <h2 class="section-title">Host del Mes</h2>
+                <div class="ranking-grid">
+                    <div class="ranking-card first-place">
+                        <div class="rank-badge">1°</div>
+                        <div class="member-avatar">👑</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Primer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">2°</div>
+                        <div class="member-avatar">⭐</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Segundo Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">3°</div>
+                        <div class="member-avatar">🏅</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Tercer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">4°</div>
+                        <div class="member-avatar">🎖️</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Cuarto Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">5°</div>
+                        <div class="member-avatar">🎯</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Quinto Lugar</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>¿Quieres aparecer aquí?</h3>
+                    <p>Demuestra tu compromiso con GVX. Organiza eventos creativos, mantén a la comunidad entretenida, crea experiencias memorables y demuestra pasión por el roleplay. Los mejores hosts son reconocidos por su creatividad y dedicación.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jugador del Mes Section -->
+        <section id="jugador-mes" class="section">
+            <div class="container">
+                <h2 class="section-title">Jugador del Mes</h2>
+                <div class="ranking-grid">
+                    <div class="ranking-card first-place">
+                        <div class="rank-badge">1°</div>
+                        <div class="member-avatar">👑</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Primer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">2°</div>
+                        <div class="member-avatar">⭐</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Segundo Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">3°</div>
+                        <div class="member-avatar">🏅</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Tercer Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">4°</div>
+                        <div class="member-avatar">🎖️</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Cuarto Lugar</p>
+                    </div>
+                    <div class="ranking-card">
+                        <div class="rank-badge">5°</div>
+                        <div class="member-avatar">🎯</div>
+                        <h3>Próximamente</h3>
+                        <p class="member-role">Quinto Lugar</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>¿Quieres aparecer aquí?</h3>
+                    <p>Demuestra tu compromiso con GVX. Participa activamente en el roleplay, respeta las reglas, sé amable con otros jugadores y crea historias increíbles. Los mejores jugadores destacan por su actitud positiva y su pasión por el juego.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="section">
+            <div class="container">
+                <h2 class="section-title">Galería de Media</h2>
+                <div class="media-grid" id="mediaGrid">
+                    <!-- Las imágenes se generarán con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Información Section -->
+        <section id="informacion" class="section">
+            <div class="container">
+                <h2 class="section-title">Información del Servidor</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📅 Creación</h3>
+                        <p>29 de Julio, 2025</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📈 Verdadero Crecimiento</h3>
+                        <p>Octubre 2025</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Usuarios Activos</h3>
+                        <p id="memberCountInfo">Conectando con Discord...</p>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h3 class="subsection-title">Equipo de Administración</h3>
+                    
+                    <div class="owner-card">
+                        <h4>Owner</h4>
+                        <div class="owner-info">
+                            <div class="owner-details">
+                                <h5>Bob la Ardilla</h5>
+                                <p class="real-name">(Andrés León)</p>
+                            </div>
+                            <div class="profile-avatars">
+                                <div class="avatar-container">
+                                    <img src="images/bob_roblox.png" alt="Bob Roblox" class="profile-avatar">
+                                    <span class="avatar-label">Roblox</span>
+                                </div>
+                                <div class="avatar-container">
+                                    <img src="images/bob_discord.png" alt="Bob Discord" class="profile-avatar">
+                                    <span class="avatar-label">Discord</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="owner-card">
+                        <h4>Co-Owner</h4>
+                        <div class="owner-info">
+                            <div class="owner-details">
+                                <h5>Valreek</h5>
+                                <p class="real-name">(Ralzeek, Thalveen, Alonso)</p>
+                            </div>
+                            <div class="profile-avatars">
+                                <div class="avatar-container">
+                                    <img src="images/valreek_roblox.png" alt="Valreek Roblox" class="profile-avatar">
+                                    <span class="avatar-label">Roblox</span>
+                                </div>
+                                <div class="avatar-container">
+                                    <img src="images/valreek_discord.png" alt="Valreek Discord" class="profile-avatar">
+                                    <span class="avatar-label">Discord</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-note">
+                        <p><strong>Nota:</strong> El equipo de Staffs y Hosts está en constantes cambios para mantener la calidad del servidor. Por esta razón, no se listan individualmente aquí. Consulta el canal correspondiente en Discord para ver el equipo actual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enlaces Section -->
+        <section id="enlaces" class="section">
+            <div class="container">
+                <h2 class="section-title">Enlaces y Redes Sociales</h2>
+                
+                <div class="links-grid">
+                    <div class="link-card discord-card">
+                        <div class="link-icon">💬</div>
+                        <h3>Servidor de Discord</h3>
+                        <p>Únete a nuestra comunidad oficial</p>
+                        <a href="https://discord.gg/STs5NtMqus" target="_blank" class="link-button">
+                            Unirse al Discord
+                        </a>
+                    </div>
+
+                    <div class="link-card tiktok-card">
+                        <div class="link-icon">🎵</div>
+                        <h3>TikTok Oficial</h3>
+                        <p>Síguenos para contenido exclusivo</p>
+                        <a href="https://www.tiktok.com/@greenvx.boblaardilla?_r=1&_t=ZS-93i6Pd81VRq" target="_blank" class="link-button">
+                            Seguir en TikTok
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3 class="subsection-title">Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="https://discord.gg/STs5NtMqus" target="_blank" class="social-link">
+                            <span class="social-icon">💬</span>
+                            <span>Discord</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@greenvx.boblaardilla?_r=1&_t=ZS-93i6Pd81VRq" target="_blank" class="social-link">
+                            <span class="social-icon">🎵</span>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="GVX">
+                <h3>GreenVX</h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 GreenVX - Todos los derechos reservados</p>
+                <p>Servidor de Roleplay Greenville Roblox</p>
+                <p style="margin-top: 10px; color: var(--neon-red);">Creado por Andrés León</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://discord.gg/STs5NtMqus" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@greenvx.boblaardilla?_r=1&_t=ZS-93i6Pd81VRq" target="_blank">TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
